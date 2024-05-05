@@ -62,5 +62,5 @@ file inputFile
     """
 }
 workflow {
-    runScript(file(params.inputFile))
+    DataPreprocessing(file(params.inputFile))
 }
