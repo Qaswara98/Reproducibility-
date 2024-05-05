@@ -6,7 +6,8 @@ process DataPreprocessing  {
     publishDir "$baseDir/results", mode: 'copy'
 
     input:
-    file inputFile from file(params.inputFile)
+file inputFile
+
 
     output:
     file 'normCounts_res.CSV'
@@ -61,5 +62,5 @@ process DataPreprocessing  {
     """
 }
 workflow {
-    DataPreprocessing (params.inputFile)
+    runScript(file(params.inputFile))
 }
