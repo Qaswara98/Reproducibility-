@@ -4,8 +4,8 @@ params.input_file = null  // Define a parameter for the input file, defaulting t
 
 process completeAnalysis {
     input:
-    path input_file from params.input_file
-    
+    path input_file
+
     script:
     """
     Rscript -e '
