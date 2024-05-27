@@ -1,4 +1,4 @@
-nextflow.enable.dsl=2
+#!/usr/bin/env nextflow
 
 params.input_file = params.input_file ?: error("Input file not specified. Use --input_file to specify the input file.")
 
