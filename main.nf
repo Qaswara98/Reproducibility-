@@ -4,8 +4,8 @@ params.input_file = ""  // Define a parameter for the input file
 
 process completeAnalysis {
     input:
-    path input_file from params.input_file
-    
+    path input_file
+
     script:
     """
     Rscript -e '
@@ -107,5 +107,5 @@ process completeAnalysis {
 }
 
 workflow {
-    completeAnalysis()
+    completeAnalysis(input_file: file(params.input_file))
 }
