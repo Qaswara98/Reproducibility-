@@ -4,7 +4,7 @@ params.input_file = null  // Define a parameter for the input file, defaulting t
 
 process completeAnalysis {
     input:
-    path input_file from file(params.input_file)
+    path input_file
 
     script:
     """
@@ -107,5 +107,5 @@ process completeAnalysis {
 }
 
 workflow {
-    completeAnalysis()
+    completeAnalysis(input_file: file(params.input_file))
 }
