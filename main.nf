@@ -1,10 +1,10 @@
 nextflow.enable.dsl=2
 
-params.input_file = null  // Define a parameter for the input file, defaulting to null
+params.input_file = params.input_file ?: error("Input file not specified. Use --input_file to specify the input file.")
 
 process completeAnalysis {
     input:
-    path input_file
+    path input_file from file(params.input_file)
 
     script:
     """
@@ -107,5 +107,5 @@ process completeAnalysis {
 }
 
 workflow {
-    completeAnalysis(input_file: file(params.input_file))
+    completeAnalysis()
 }
