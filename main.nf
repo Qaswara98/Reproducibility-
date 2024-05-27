@@ -1,11 +1,11 @@
 nextflow.enable.dsl=2
 
-params.input_file = ""  // Define a parameter for the input file
+params.input_file = null  // Define a parameter for the input file, defaulting to null
 
 process completeAnalysis {
     input:
-    path input_file
-
+    path input_file from params.input_file
+    
     script:
     """
     Rscript -e '
